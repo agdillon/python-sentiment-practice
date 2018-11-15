@@ -17,15 +17,60 @@ document.addEventListener('DOMContentLoaded', () => {
     numberBlank.value = ''
     form.hidden = true
 
+    // items
     let chartData = []
-    for (let i = 1; i < polarityList.length; i++) {
-      chartData.push({ x: i, y: polarityList[i] })
+    for (let i = 0; i < polarityList.length; i++) {
+      let dataObj = { x: i + 1, y: polarityList[i], group: 0 }
+      if (polarityList[i] < 0) {
+        dataObj.group = -1
+      }
+      else if (polarityList[i] > 0) {
+        dataObj.group = 1
+      }
+      chartData.push(dataObj)
     }
+
     let dataset = new vis.DataSet(chartData)
+
+    // groups
+    let groups = new vis.DataSet()
+    groups.add({
+      id: -1,
+      content: 'Negative',
+      className: 'negative'
+    })
+    groups.add({
+      id: 0,
+      content: 'Neutral',
+      className: 'neutral'
+    })
+    groups.add({
+      id: 1,
+      content: 'Positive',
+      className: 'positive'
+    })
+
     let options = {
       sort: false,
       sampling: false,
-      style: 'points'
+      style: 'points',
+      showMajorLabels: false,
+      showMinorLabels: false,
+      drawPoints: {
+        size: 4,
+        style: 'circle'
+      },
+      dataAxis: {
+        left: {
+          title: {
+            text: 'Sentiment'
+          },
+          range: {
+            min: -1.25,
+            max: 1.25
+          }
+        }
+      }
     }
     let scatterPlot = new vis.Graph2d(chartDiv, dataset, options)
 
@@ -55,6 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   backButton.addEventListener('click', () => {
-
+    chartDiv.innerHTML = ''
+    chartDiv.hidden = true
+    infoDiv.hidden = true
+    backButton.hidden = true
+    form.hidden = false
   })
 })
