@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request, jsonify
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 import analysis
@@ -11,5 +11,6 @@ def index():
 def submit():
     json_data = request.get_json(force=True)
     search_term = json_data['search_term']
+    number_of_tweets = int(json_data['number_of_tweets'])
     # error handling might be nice
-    return jsonify(analysis.analyze_tweets(search_term, 100))
+    return jsonify(analysis.analyze_tweets(search_term, number_of_tweets))

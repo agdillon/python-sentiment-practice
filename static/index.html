@@ -2,20 +2,30 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
     <link rel="stylesheet" href="/static/styles.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
     <script src="/static/scripts.js"></script>
     <title>Twitter Sentiment Analysis Search</title>
   </head>
   <body>
-<form id="form">
+<form id="form" class="form-group col-md-6">
+  <div class="form-group">
   <label for="search_term">Search term:</label>
-  <input type="text" name="search_term" id="search_term" required>
-  <input type="submit">
+  <input type="text" name="search_term" class="form-control-md" id="search_term" required>
+  </div>
+  <div class="form-group">
+  <label for="number_of_tweets">Number of tweets (50 to 1000):</label>
+  <input type="number" name="number_of_tweets" class="form-control-sm" id="number_of_tweets" required min=50 max=1000 step=1>
+  </div>
+  <input type="submit" class="btn btn-primary">
 </form>
 <div id="chart_div" hidden>
 </div>
 <div id="info_div" hidden>
 </div>
+<button type="button" id="back" hidden>Back</button>
   </body>
 </html>
