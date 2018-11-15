@@ -1,4 +1,6 @@
 from flask import Flask
+from flask import request
+from flask import jsonify
 app = Flask(__name__)
 
 import analysis
@@ -7,7 +9,9 @@ import analysis
 def index():
     return app.send_static_file('index.html')
 
-# @app.route('/', methods=['POST'])
-# going to be used for ajax only, so just send back json
-# request.form.search_term
-# analysis.analyze_tweets('0', 0)
+@app.route('/', methods=['POST'])
+def submit():
+    json_data = request.get_json(force=True)
+    search_term = json_data['search_term']
+    # error handling might be nice
+    return jsonify(analysis.analyze_tweets(search_term, 100))

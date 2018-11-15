@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
     <title>Twitter Sentiment Analysis Search</title>
   </head>
   <body>
-<form>
+<form id="form">
   <label for="search_term">Search Term</label>
-  <input type="text" name="search_term" required>
-  <input type="submit">
+  <input type="text" name="search_term" id="search_term" required>
+  <input type="submit" id="submit">
 </form>
   </body>
 </html>
