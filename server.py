@@ -19,8 +19,6 @@ else:
     token_secret = config.token_secret
     port = 5000
 
-app.run(host='0.0.0.0', port=port)
-
 import analysis
 
 @app.route('/', methods=['GET'])
