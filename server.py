@@ -5,7 +5,6 @@ import os
 is_prod = os.getenv('IS_HEROKU')
 
 if is_prod:
-    print('production')
     api_key = os.getenv('api_key')
     api_secret = os.getenv('api_secret')
     access_token = os.getenv('access_token')
