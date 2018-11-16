@@ -2,10 +2,10 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 import os
-is_prod = os.environ.get('IS_HEROKU', None)
+is_prod = os.getenv('IS_HEROKU')
 
 if is_prod:
-    api_key = os.environ.get('api_key')
+    api_key = os.getenv('api_key')
     api_secret = os.environ.get('api_secret')
     access_token = os.environ.get('access_token')
     token_secret = os.environ.get('token_secret')
