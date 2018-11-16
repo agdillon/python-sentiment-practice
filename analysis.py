@@ -1,20 +1,4 @@
 def analyze_tweets(search_term, number_of_tweets):
-    import os
-    is_prod = os.environ.get('IS_HEROKU', None)
-
-    if is_prod:
-        api_key = os.environ.api_key
-        api_secret = os.environ.api_secret
-        access_token = os.environ.access_token
-        token_secret = os.environ.token_secret
-
-    else:
-        import config
-        api_key = config.api_key
-        api_secret = config.api_secret
-        access_token = config.access_token
-        token_secret = config.token_secret
-
     import tweepy
     from datetime import datetime
     from textblob import TextBlob
