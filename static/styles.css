@@ -1,11 +1,20 @@
-.negative {
-  color: red;
+.vis-graph-group2 {
+  fill: red;
+  stroke: red;
 }
 
-.neutral {
-  color: black;
+.vis-graph-group0 {
+  fill: black;
+  stroke: black;
 }
 
-.positive {
-  color: green;
+.vis-graph-group1 {
+  fill: green;
+  stroke: green;
+}
+
+#twitter {
+  margin-top:-5px;
+  width:40px;
+  height:40px;
 }

@@ -8,9 +8,14 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
     <script src="/static/scripts.js"></script>
-    <title>Twitter Sentiment Analysis Search</title>
+    <title>Twitter Sentiment Analysis</title>
   </head>
   <body>
+    <nav class="nav justify-content-center">
+      <div class="nav-item"><h2>Twitter Sentiment Analysis<img src="static/Twitter_Logo_Blue.png" id="twitter"></h2></div>
+    </nav>
+
+    <div class="row mt-3">
     <form id="form" class="form-group col-md-4 offset-md-4 justify-content-center">
       <div class="form-group">
         <label for="search_term">Search term:</label>
@@ -25,9 +30,10 @@
     <div class="col-md-8 offset-md-2">
       <div id="chart_div" class="justify-content-center" hidden>
       </div>
-      <div id="info_div" hidden>
+      <div id="info_div" class="mt-3" hidden>
       </div>
       <button type="button" class="btn btn-dark" id="back" hidden>Back</button>
     </div>
+  </div>
   </body>
 </html>
