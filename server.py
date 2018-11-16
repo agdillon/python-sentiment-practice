@@ -5,18 +5,8 @@ import os
 is_prod = os.getenv('IS_HEROKU')
 
 if is_prod:
-    api_key = os.getenv('api_key')
-    api_secret = os.getenv('api_secret')
-    access_token = os.getenv('access_token')
-    token_secret = os.getenv('token_secret')
     port = os.getenv('PORT')
-
 else:
-    import config
-    api_key = config.api_key
-    api_secret = config.api_secret
-    access_token = config.access_token
-    token_secret = config.token_secret
     port = 5000
 
 import analysis

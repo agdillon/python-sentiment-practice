@@ -3,6 +3,21 @@ def analyze_tweets(search_term, number_of_tweets):
     from datetime import datetime
     from textblob import TextBlob
 
+    import os
+    is_prod = os.getenv('IS_HEROKU')
+
+    if is_prod:
+        api_key = os.getenv('api_key')
+        api_secret = os.getenv('api_secret')
+        access_token = os.getenv('access_token')
+        token_secret = os.getenv('token_secret')
+    else:
+        import config
+        api_key = config.api_key
+        api_secret = config.api_secret
+        access_token = config.access_token
+        token_secret = config.token_secret
+
     # auth and setup for Twitter API
     auth = tweepy.OAuthHandler(api_key, api_secret)
     auth.set_access_token(access_token, token_secret)
