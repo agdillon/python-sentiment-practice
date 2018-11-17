@@ -1,6 +1,4 @@
 # python-sentiment-practice
-My Unfamiliar Environments exercise: a basic Twitter sentiment analysis app in Python, partially based on the tutorial here: https://medium.freecodecamp.org/basic-data-analysis-on-twitter-with-python-251c2a85062e
+My Unfamiliar Environments exercise: a basic full-stack Twitter sentiment analysis app, partially based on the tutorial here: https://medium.freecodecamp.org/basic-data-analysis-on-twitter-with-python-251c2a85062e  Backend is Python 3.7/Flask and uses Tweepy and TextBlob for NLP.
 
-Written in Python 3.7.  Packages needed: tweepy, textblob, flask
-
-Note: As of Nov 14 2018 there is a bug in the tweepy package due to its use of async as a parameter name (async is now a reserved word in Python 3.7).  Therefore I took the advice at this issue page and replaced all instances of async in tweepy's streaming.py with async_: https://github.com/tweepy/tweepy/issues/1017
+Note: The latest release version 3.6.0 of Tweepy is incompatible with Python 3.7 due to its use of async as a parameter name (async is now a reserved word).  This is fixed in the code at https://github.com/tweepy/tweepy/, so this version of the package needs to be used.
